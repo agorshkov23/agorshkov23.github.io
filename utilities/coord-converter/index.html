@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Конвертер координат</title>
+</head>
+
+<body>
+    <table>
+        <tbody>
+            <tr>
+                <td>Градусы</td>
+                <td>
+                    <input type="number" id="degree" />
+                </td>
+            </tr>
+            <tr>
+                <td>Радианы</td>
+                <td>
+                    <input type="number" id="radian" />
+                </td>
+            </tr>
+            <tr>
+                <td>Радианы&times;10e8</td>
+                <td>
+                    <input type="number" id="radian10e8" />
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <script>
+        var coeff = 10e8;
+
+        var degree = document.getElementById("degree");
+        var radian = document.getElementById("radian");
+        var radian10e8 = document.getElementById("radian10e8");
+
+        degree.onchange = function (e) {
+            radian.value = degree.value * Math.PI / 180;
+            radian.onchange();
+        };
+        radian.onchange = function (e) {
+            degree.value = radian.value * 180 / Math.PI;
+            radian10e8.value = Math.round(radian.value * coeff);
+        };
+        radian10e8.onchange = function (e) {
+            radian.value = radian10e8.value / coeff;
+            radian.onchange();
+        }
+    </script>
+</body>
+</html>
