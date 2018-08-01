@@ -487,7 +487,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Tokenizer.prototype.createWordRegex = function createWordRegex() {
 	        var specialChars = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 
-	        return new RegExp("^([\\w" + specialChars.join("") + "]+)");
+	        return new RegExp("^([\\w" + specialChars.join("") + "а-яА-Я]+)");
 	    };
 
 	    Tokenizer.prototype.createStringRegex = function createStringRegex(stringTypes) {
